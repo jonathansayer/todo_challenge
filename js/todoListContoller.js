@@ -1,17 +1,13 @@
 todoList.controller('todoListController', [function() {
 
 var self = this
-var n = 0;
 
 self.addToList = function(){
-  console.log(self.chore)
   var newChore = {
     "name" : self.chore,
     "isDone" : false
   }
   self.chores.push(newChore)
-  console.log(self.chores[n])
-  n++;
   self.chore = ""
   self.NumberDone()
 }
@@ -34,7 +30,6 @@ self.NumberDone = function(){
 self.deleteChore = function(chore){
   var index = self.chores.indexOf(chore)
   self.chores.splice(index,1)
-  console.log(self.chores)
 
 }
 
