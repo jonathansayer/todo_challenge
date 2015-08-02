@@ -19,7 +19,12 @@
       <Label>Add an Item on your list: <input type="text" ng-model="todoCtrl.chore" ng-change="todoCtrl.addtoList()">
       <button class ='addBtn' ng-click="todoCtrl.addToList()">Add to List</button>
     </form> 
-     <ul class="list-group" ng-repeat='chore in todoCtrl.chores'>
+    <select ng-model="filterType">
+      <option value=""> All</option>
+      <option value="false">Active</option>
+      <option value="true">Completed</option>
+    </select>
+     <ul class="list-group" ng-repeat='chore in todoCtrl.chores |filter:chore.isDone = filterType'>
       <li> {{chore.name}}
         <div class="squaredTwo">
             <input type="checkbox" class="check" ng-click="todoCtrl.choreComplete(chore)">
@@ -27,6 +32,8 @@
         <button class='deleteBtn' ng-click='todoCtrl.deleteChore(chore)' ng-click="delete($index)">delete chore</button>
       </li> 
     </ul>
-    <div class = "record" ng-init = 'todoCtrl.doneCounter = 0'>{{todoCtrl.doneCounter}} Tasks Complete</div>
+    <div class = "done" ng-init = 'todoCtrl.doneCounter = 0'>{{todoCtrl.doneCounter}} Tasks Complete</div>
+    <div class = "notDone" ng-init = 'todoCtrl.notDoneCounter = 0'>{{todoCtrl.notDoneCounter}} Tasks not Complete</div>
+    <button class="clearBtn" ng-click="todoCtrl.clearCompleted()">Clear Completed Tasks</button>
   </body>
 </html>

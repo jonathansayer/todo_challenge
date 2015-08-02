@@ -13,6 +13,7 @@ self.addToList = function(){
   console.log(self.chores[n])
   n++;
   self.chore = ""
+  self.NumberDone()
 }
 
 self.choreComplete = function(chore){
@@ -27,6 +28,7 @@ self.NumberDone = function(){
       self.doneCounter +=1;
     }
   }
+  self.notDoneCounter = (self.chores.length)-self.doneCounter
 }
 
 self.deleteChore = function(chore){
@@ -35,5 +37,16 @@ self.deleteChore = function(chore){
   console.log(self.chores)
 
 }
+
+self.clearCompleted = function(chore){
+  for(n = 0; n < self.chores.length; n++){
+    if(self.chores[n].isDone == true ) {
+      self.chores.splice(n,1)
+    }
+  }
+  self.NumberDone();
+}
+
+
 
 }]);

@@ -4,6 +4,7 @@ describe('To do List', function() {
   var addButton = element(by.className('addBtn'))
   var checkBox = element(by.className('check'))
   var deleteButton = element(by.className('deleteBtn'))
+  var clearButton = element(by.className('clearBtn'))
 
 
    beforeEach(function() {
@@ -27,7 +28,7 @@ describe('To do List', function() {
     addChore.sendKeys('Complete Challenge');
     addButton.click();
     checkBox.click();
-    expect(element(by.className('record')).getText()).toEqual('1 Tasks Complete');
+    expect(element(by.className('done')).getText()).toEqual('1 Tasks Complete');
   })
 
   it("will change the number of completed tasks if checked then unchecked", function(){
@@ -35,7 +36,7 @@ describe('To do List', function() {
     addButton.click();
     checkBox.click();
     checkBox.click();
-    expect(element(by.className('record')).getText()).toEqual('0 Tasks Complete');
+    expect(element(by.className('done')).getText()).toEqual('0 Tasks Complete');
   })
 
   it('allows a user to delete an entry', function() {
@@ -44,5 +45,16 @@ describe('To do List', function() {
     deleteButton.click();
     var list = element.all(by.repeater('chore in todoCtrl.chores'));
     expect(list).isNotPresent;
+  })
+
+  it('allows for a user to delete all completed tasks', function() {
+    addChore.sendKeys('Complete Challenge');
+    addButton.click();
+    checkBox.click();
+    addChore.sendKeys('Do the Garden');
+    addButton.click();
+    clearButton.click();
+    var list = element.all(by.repeater('chore in todoCtrl.chores'));
+    expect(list.get(0).getText()).toContain('Do the Garden')
   })
 });
