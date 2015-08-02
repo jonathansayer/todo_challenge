@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="todoList">
   <head>
     <meta charset="utf-8">
     <title> Todo Challenge
     </title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+ <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    
+     <script src="js/app.js"></script>
+     
+    <script src="js/todoListContoller.js"></script>
   </head>
 
-  <body>
-    
+  <body ng-controller="todoListController as todoCtrl" ng-init = "todoCtrl.chores =[] ">
+    <form class="inputChore">
+      <Label>Add an Item on your list: <input type="text" ng-model="todoCtrl.chore" ng-change="todoCtrl.addtoList()">
+      <button class ='addBtn' ng-click="todoCtrl.addToList()">Add to List</button>
+    </form> 
+     <ul class="list-group" ng-repeat='chore in todoCtrl.chores'>
+      <li> {{chore.name}}
+        <div class="squaredTwo">
+            <input type="checkbox" class="check" ng-click="todoCtrl.choreComplete(chore)">
+        </div>
+        <button class='deleteBtn' ng-click='todoCtrl.deleteChore(chore)' ng-click="delete($index)">delete chore</button>
+      </li> 
+    </ul>
+    <div class = "record" ng-init = 'todoCtrl.doneCounter = 0'>{{todoCtrl.doneCounter}} Tasks Complete</div>
   </body>
 </html>

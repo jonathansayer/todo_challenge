@@ -1,0 +1,8 @@
+var chores = [
+{"name" : "wash",
+"isDone" : false},
+{"name" : "work", 
+ "isDone" : false}
+]
+
+
