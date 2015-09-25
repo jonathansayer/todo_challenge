@@ -3,7 +3,7 @@ Todo Challenge
 
 Introduction
 ---------
-The Todo challenge is a challenge which is issued by Makers Academy during Week 8 of the course. The aim of the Challenge is develop an app for a todo list which is written using Angular. The User stories are as follows:
+The Todo challenge was issued by Makers Academy during Week 8 of the course. The aim of the challenge is develop an app for a todo list which is written using Angular. The User stories are as follows:
 
 ```
 As a forgetful person
@@ -33,7 +33,7 @@ So I never see them again
 
 How I Tackled the Challenge
 -------
-As with all my code, this program is written using the Test Driven Methodology. Feature tests are written using the [Protractor!](https://angular.github.io/protractor/#/) Testing Frame Work. The feature tests can be found in tests/e2e/todoListFeature.js. The Unit tests for the controller were writtin using the [Karam!](http://karma-runner.github.io/0.13/index.html) testing suit. The unit tests can be found in test/todoController.spec.js.
+As with all my code, this program is written using the Test Driven Methodology. Feature tests are written using the [Protractor!](https://angular.github.io/protractor/#/) Testing Frame Work. The feature tests can be found in tests/e2e/todoListFeature.js. The Unit tests for the controller were written using the [Karma!](http://karma-runner.github.io/0.13/index.html) testing suit. The unit tests can be found in test/todoController.spec.js.
 This code was written using Behaviour Driven Development, which dictates that the feature test should be written first, followed by the unit test that enables that feature test to pass followed by the code to pass the unit test. If the feature test does not pass then another unit test is written and so on.
 
  ![Alt text](/images/BDD.png?raw=true)
@@ -41,7 +41,7 @@ This code was written using Behaviour Driven Development, which dictates that th
 
 Difficulties
 -----
-Difficulties came when running the test. Both Tests suits are new to me and have different requirements to each other and to what I have used in the past. I initially had difficulty running the Karma tests. The Karma test were trying to run in localhost:8080. It was only when I ran the http - server that this problem was solved. Angular is also a brand new framework for me as well.
+Difficulties came when running the tests. Both test suits are new to me and have different requirements to each other and to what I have used in the past. I initially had difficulty running the Karma tests. The tests were to running in localhost:8080 instead of 4444. It was only when I ran a http server that this problem was solved (see below).
 
 How to use the Program
 -----
@@ -58,7 +58,7 @@ To run the karma tests, you will need to run karma.conf.js using
 $ karma start test/karma.conf.js
 ```
 
-This will start the Karma server and the Phantom.js browser. The number of tests run and failed will also be shown. As this is Javascript there is no need to reboot the server after a change to the code is made. Karma will run every time a change is made to one of the files that is is testing.
+This will start the Karma server and the Phantom.js browser. The number of tests run and failed will also be shown. As this is a Javascript framework there is no need to reboot the server after a change to the code is made. Karma will run every time a change is made to one of the files that is is testing.
 
 To Run Protractor feature tests you will first have to install Protractor globally.
 
@@ -74,7 +74,7 @@ $ brew install node
 
 Please refer to the official [Node!](https://nodejs.org/en/) documentation if this occurs.
 
-You will need to update the Webdriver-manager at this point:
+You will need to update the Webdriver Manager at this point:
 
 ```
 $ webdriver-manager update
@@ -97,4 +97,4 @@ $ protractor test/e2e/conf.js
 ```
 from the root folder.
 
-To open up the program itself simply open up index.html in your browser. Much simpler than running the tests.
+To open up the program itself simply open up index.html in your browser. Much easier than running the tests.
