@@ -1,22 +1,9 @@
-# Todo Challenge
+Todo Challenge
+=================
 
-* Deadline: submit completed pull request by 9am on Monday
-* You may use whatever level of JavaScript you feel comfortable with - pure JS, jQuery, Angular, or whatever weird and wonderful framework you want to try. Extra points for DogeScript
-
-Steps
--------
-
-1. Fill out your learning plan self review for the week: https://github.com/makersacademy/learning_plan 
-2. Fork this repo, and clone to your local machine
-3. Complete the following challenge:
-
-## Challenge
-
-![Todo mockup](https://makersacademy.mybalsamiq.com/mockups/2914603.png?key=afabb09aef2901a2732515ae4349c1ec0458294b)
-
-Build a Todo list as a mini front-end application. You don't have to use a database, the front-end is more important - you can use an appropriate data structure stored somewhere in your JavaScript (this time only!)
-
-Here are the core user stories:
+Introduction
+---------
+The Todo challenge is a challenge which is issued by Makers Academy during Week 8 of the course. The aim of the Challenge is develop an app for a todo list which is written using Angular. The User stories are as follows:
 
 ```
 As a forgetful person
@@ -30,11 +17,7 @@ So that I have more time to think about other things
 As a person who actually gets stuff done
 I want to mark my tasks as done
 So that I don't do them twice
-```
 
-Here are some other user stories you may choose to implement:
-
-```
 As a person with a lot of tasks
 I want to be able to filter my tasks by "All", "Active", "Complete"
 So that I only see the relevant tasks
@@ -48,26 +31,70 @@ I want to be able to clear my completed tasks
 So I never see them again
 ```
 
-As you may imagine, implementing a To-do list is very much a solved problem. However, we are mainly interested in seeing how you approach testing and design. We are looking for:
+How I Tackled the Challenge
+-------
+As with all my code, this program is written using the Test Driven Methodology. Feature tests are written using the [Protractor!](https://angular.github.io/protractor/#/) Testing Frame Work. The feature tests can be found in tests/e2e/todoListFeature.js. The Unit tests for the controller were writtin using the [Karam!](http://karma-runner.github.io/0.13/index.html) testing suit. The unit tests can be found in test/todoController.spec.js.
+This code was written using Behaviour Driven Development, which dictates that the feature test should be written first, followed by the unit test that enables that feature test to pass followed by the code to pass the unit test. If the feature test does not pass then another unit test is written and so on.
 
-* well written, well structured acceptance and unit tests
-* clear and expressive JavaScript
-* good HTML5 markup
+ ![Alt text](/images/BDD.png?raw=true)
 
-Don't worry about deployment, and make sure you read the CONTRIBUTING.md when submitting a pull request.
 
-## Extensions
+Difficulties
+-----
+Difficulties came when running the test. Both Tests suits are new to me and have different requirements to each other and to what I have used in the past. I initially had difficulty running the Karma tests. The Karma test were trying to run in localhost:8080. It was only when I ran the http - server that this problem was solved. Angular is also a brand new framework for me as well.
 
-* Deploy the app
-* Create a persistance layer (e.g. MongoDB), or use LocalStorage or the filesystem through Node
-* Make it look purdy (CSS) - try a framework like Bootstrap or Foundation
+How to use the Program
+-----
 
-## CI
+In order to run the Karma testing suit you will first have to install the Karma command line interface. This can be done by running the following command:
 
-Read the `.travis.yml` if any of the steps below don't make sense! 
+```
+ $ npm install -g karma-cli
+```
 
-* Make sure you have set up `npm test` in your `package.json` so that it runs your Karma tests
-* Make sure you have your Protractor config file at `e2e/conf.js`
-* Make sure `npm start` spins up whatever serves up your app - `http-server`, Sinatra or Node
+To run the karma tests, you will need to run karma.conf.js using
 
-Good luck!
+```
+$ karma start test/karma.conf.js
+```
+
+This will start the Karma server and the Phantom.js browser. The number of tests run and failed will also be shown. As this is Javascript there is no need to reboot the server after a change to the code is made. Karma will run every time a change is made to one of the files that is is testing.
+
+To Run Protractor feature tests you will first have to install Protractor globally.
+
+```
+$ npm install -g protractor
+```
+
+If an error message appears due to command line not knowing the command npm, you will first have to install node using:
+
+```
+$ brew install node
+```
+
+Please refer to the official [Node!](https://nodejs.org/en/) documentation if this occurs.
+
+You will need to update the Webdriver-manager at this point:
+
+```
+$ webdriver-manager update
+```
+and start the server using :
+
+```
+$ webdriver-manager start
+```
+This will start the Selenium Server which Protractor uses. If you run the tests now they will all fail becase Selenium is running in the wrong localhost port. The easy way to fix this (there are other ways including setting up your own server) is to run a http server which has been set up in this repo. This can be run using:
+
+```
+$ http-server
+```
+
+While these two servers are running you can now run all Protractor tests by running
+
+```
+$ protractor test/e2e/conf.js
+```
+from the root folder.
+
+To open up the program itself simply open up index.html in your browser. Much simpler than running the tests.
