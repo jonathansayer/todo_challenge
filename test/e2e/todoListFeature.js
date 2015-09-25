@@ -18,7 +18,6 @@ describe('To do List', function() {
   it('allows a user to enter chores', function(){
     addChore.sendKeys('Grocery Shop');
     addButton.click();
-
     var list = element.all(by.repeater('chore in todoCtrl.chores'));
     expect(list.get(0).getText()).toContain('Grocery Shop');
   })
