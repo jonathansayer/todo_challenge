@@ -33,7 +33,7 @@ So I never see them again
 
 How I Tackled the Challenge
 -------
-As with all my code, this program is written using the Test Driven Methodology. Feature tests are written using the [Protractor!](https://angular.github.io/protractor/#/) Testing Frame Work. The feature tests can be found in tests/e2e/todoListFeature.js. The Unit tests for the controller were written using the [Karma!](http://karma-runner.github.io/0.13/index.html) testing suit. The unit tests can be found in test/todoController.spec.js.
+As with all my code, this program is written using the Test Driven Methodology. Feature tests are written using the [Protractor](https://angular.github.io/protractor/#/) Testing Frame Work. The feature tests can be found in tests/e2e/todoListFeature.js. The Unit tests for the controller were written using the [Karma](http://karma-runner.github.io/0.13/index.html) testing suit. The unit tests can be found in test/todoController.spec.js.
 This code was written using Behaviour Driven Development, which dictates that the feature test should be written first, followed by the unit test that enables that feature test to pass followed by the code to pass the unit test. If the feature test does not pass then another unit test is written and so on.
 
  ![Alt text](/images/BDD.png?raw=true)
