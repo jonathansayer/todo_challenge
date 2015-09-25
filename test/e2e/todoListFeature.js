@@ -12,7 +12,6 @@ describe('To do List', function() {
   })
 
   it('has a title', function() {
-
     expect(browser.getTitle()).toEqual('Todo Challenge');
   });
 

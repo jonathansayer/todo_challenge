@@ -30,10 +30,10 @@ self.NumberDone = function(){
 self.deleteChore = function(chore){
   var index = self.chores.indexOf(chore)
   self.chores.splice(index,1)
-
+  self.NumberDone();
 }
 
-self.clearCompleted = function(chore){
+self.clearCompleted = function(){
   for(n = 0; n < self.chores.length; n++){
     if(self.chores[n].isDone == true ) {
       self.chores.splice(n,1)
@@ -41,7 +41,4 @@ self.clearCompleted = function(chore){
   }
   self.NumberDone();
 }
-
-
-
 }]);
