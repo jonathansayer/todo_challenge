@@ -11,4 +11,3 @@ before_script:
   - npm start > /dev/null &
   - webdriver-manager update
   - sleep 3
-#travis
