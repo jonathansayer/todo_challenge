@@ -2,7 +2,7 @@ script:
   - npm test --single-run
 language: node_js
 node_js:
-  - "0.12.7"
+  - "0.10"
 before_script:
   - bower install
   - "export DISPLAY=:99.0"
@@ -10,5 +10,3 @@ before_script:
   - npm start > /dev/null &
   - webdriver-manager update
   - sleep 3
-  
-
