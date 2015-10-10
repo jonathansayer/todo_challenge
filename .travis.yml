@@ -3,7 +3,7 @@ script:
   - node_modules/.bin/protractor e2e/conf.js --browser=chrome
 language: node_js
 node_js:
-  - "0.10"
+  - "0.12.7"
 before_script:
   - bower install
   - "export DISPLAY=:99.0"
