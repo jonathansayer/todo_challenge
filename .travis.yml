@@ -5,11 +5,12 @@ language: node_js
 node_js:
   - "0.10"
 before_script:
-  - npm install
-  - install.js
-  - bower install
+  - "npm install"
+  - "npm install grunt-cli"
+  - "install.js"
+  - "bower install"
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - npm start > /dev/null &
-  - webdriver-manager update
-  - sleep 3
+  - "npm start > /dev/null &"
+  - "webdriver-manager update"
+  - "sleep 3"
